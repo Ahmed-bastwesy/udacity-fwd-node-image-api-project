@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import processImage from './image-processing'; 
+import processImage from './image-processing';
 
 // query segments
 interface ImageQuery {
@@ -13,7 +13,6 @@ export default class File {
   // Default paths
   static imagesFullPath = path.resolve(__dirname, '../assets/images/full');
   static imagesThumbPath = path.resolve(__dirname, '../assets/images/thumb');
-
 
   static async getImagePath(params: ImageQuery): Promise<null | string> {
     if (!params.filename) {
@@ -38,7 +37,6 @@ export default class File {
     }
   }
 
-
   static async isImageAvailable(filename: string = ''): Promise<boolean> {
     if (!filename) {
       return false; // Fail early
@@ -60,7 +58,6 @@ export default class File {
       return [];
     }
   }
-
 
   static async isThumbAvailable(params: ImageQuery): Promise<boolean> {
     if (!params.filename || !params.width || !params.height) {
@@ -93,10 +90,9 @@ export default class File {
     }
   }
 
-
   static async createThumb(params: ImageQuery): Promise<null | string> {
     if (!params.filename || !params.width || !params.height) {
-      return null; 
+      return null;
     }
 
     const filePathFull: string = path.resolve(

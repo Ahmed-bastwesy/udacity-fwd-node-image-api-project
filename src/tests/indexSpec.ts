@@ -32,7 +32,6 @@ describe('Test responses from endpoints', (): void => {
       expect(response.status).toBe(200);
     });
 
-
     it('gets /api/images (no arguments)', async (): Promise<void> => {
       const response: supertest.Response = await request.get('/api/images');
 

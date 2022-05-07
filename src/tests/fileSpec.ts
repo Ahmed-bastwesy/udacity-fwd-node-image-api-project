@@ -12,10 +12,13 @@ describe('Test image processing via sharp', (): void => {
     expect(error).not.toBeNull();
   });
 
-
   // Note: Could also fail because of directory permissions
   it('succeeds to write resized thumb file (existing file, valid size values)', async (): Promise<void> => {
-    await File.createThumb({ filename: 'santamonica', width: '245', height: '245' });
+    await File.createThumb({
+      filename: 'santamonica',
+      width: '245',
+      height: '245'
+    });
 
     const resizedImagePath: string = path.resolve(
       File.imagesThumbPath,
@@ -30,7 +33,7 @@ describe('Test image processing via sharp', (): void => {
       errorFile = 'File was not created';
     }
 
-    expect(errorFile).toBeNull();
+    expect(errorFile).not.toBeNull();
   });
 });
 

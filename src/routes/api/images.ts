@@ -8,7 +8,7 @@ interface ImageQuery {
   height?: string;
 }
 
-// validation of url query 
+// validation of url query
 
 const validate = async (query: ImageQuery): Promise<null | string> => {
   // Check if requested file is available
@@ -43,10 +43,7 @@ const images: express.Router = express.Router();
 
 images.get(
   '/',
-  async (
-    req: express.Request,
-    res: express.Response
-  ): Promise<void> => {
+  async (req: express.Request, res: express.Response): Promise<void> => {
     // Check whether request can be worked with
     const validationMessage: null | string = await validate(req.query);
     if (validationMessage) {
